@@ -18,9 +18,25 @@ cp .env.example .env
 ## Run the database
 
 ```bash
+# Spin up database
 docker compose up -d
+# Apply migrations
 uv run alembic upgrade head
 ```
+To create a new migration
+
+```bash
+uv run alembic revision --autogenerate -m "Example"
+# To undo a migration (latest)
+uv run alembic downgrade -1
+```
+
+Other useful commands
+```bash
+uv run alembic history
+uv run alembic current
+```
+
 
 To stop the database:
 
@@ -29,3 +45,5 @@ docker compose down
 ```
 
 The local database connection is configured through `DATABASE_URL` in `.env`.
+
+
