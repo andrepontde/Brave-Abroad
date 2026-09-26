@@ -1,4 +1,4 @@
-# Brave-Abroad
+# brave-service
 
 ## Requirements
 
@@ -10,7 +10,7 @@
 
 ```bash
 git clone <repository-url>
-cd Brave-Abroad
+cd brave-service
 uv sync
 cp .env.example .env
 ```
