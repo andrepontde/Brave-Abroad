@@ -1,8 +1,8 @@
-"""Admin, booking and event initial schemas
+"""initial admin booking and event models and schemas
 
-Revision ID: 05cf2f88ce7c
+Revision ID: 76e02c500500
 Revises: 
-Create Date: 2026-09-23 14:36:00.109816
+Create Date: 2026-09-26 12:25:35.890031
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '05cf2f88ce7c'
+revision: str = '76e02c500500'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None

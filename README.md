@@ -47,3 +47,8 @@ docker compose down
 The local database connection is configured through `DATABASE_URL` in `.env`.
 
 
+To run the backend daemon:
+
+```bash
+uv run fastapi dev src/brave_service/main.py
+```
