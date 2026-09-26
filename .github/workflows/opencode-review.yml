@@ -15,8 +15,11 @@ permissions:
 jobs:
   opencode-review:
     if: >
-      github.event.issue.pull_request
-      && contains(fromJson('["OWNER","MEMBER"]'), github.event.comment.author_association)
+      contains(fromJson('["OWNER","MEMBER"]'), github.event.comment.author_association)
+      && (
+        (github.event_name == 'issue_comment' && github.event.issue.pull_request != null)
+        || github.event_name == 'pull_request_review_comment'
+      )
       && (
         contains(github.event.comment.body, '/review')
         || contains(github.event.comment.body, '/opencode')
@@ -33,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: Run OpenCode (OpenRouter)
-        uses: anomalyco/opencode/github@github-v1.2.25
+        uses: anomalyco/opencode/github@latest
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
